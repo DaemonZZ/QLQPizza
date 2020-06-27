@@ -28,7 +28,7 @@ public class LoginForm extends JFrame implements ActionListener {
 		lblNewLabel_1.setBounds(25, 182, 81, 22);
 		getContentPane().add(lblNewLabel_1);
 		
-		JLabel lblNewLabel_1_1 = new JLabel("Mã NV");
+		JLabel lblNewLabel_1_1 = new JLabel("Nhân Viên");
 		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.ITALIC, 15));
 		lblNewLabel_1_1.setBounds(25, 234, 81, 22);
 		getContentPane().add(lblNewLabel_1_1);
