@@ -47,6 +47,24 @@ public class DatabaseConnection {
 		return a;
 	}
 	
+	public ArrayList<Menu> getListMN(){
+		String sql = "select * from Menu";
+		ArrayList<Menu> b = new ArrayList<Menu>();
+		try {
+			PreparedStatement p =conn.prepareStatement(sql);
+			ResultSet rs = p.executeQuery();
+			while(rs.next()) {
+				Menu mn = new Menu();
+				mn.setMaSP(rs.getString(1));
+				mn.setTenSP(rs.getString(2));
+				mn.setGia(rs.getString(3));
+				b.add(mn);
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return b;
+	}
 	public static void main(String[] args) {
 		new DatabaseConnection();
 	}
