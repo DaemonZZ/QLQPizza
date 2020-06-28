@@ -57,7 +57,7 @@ public class DatabaseConnection {
 				Menu mn = new Menu();
 				mn.setMaSP(rs.getString(1));
 				mn.setTenSP(rs.getString(2));
-				mn.setGia(rs.getString(3));
+				mn.setGia(rs.getString(3)); // Giá Int????
 				b.add(mn);
 			}
 		} catch (Exception e) {
