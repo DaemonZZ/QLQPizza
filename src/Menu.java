@@ -3,6 +3,8 @@ public class Menu {
 	private String maSP;
 	private String tenSP;
 	private int gia;
+	
+	
 	public String getMaSP() {
 		return maSP;
 	}

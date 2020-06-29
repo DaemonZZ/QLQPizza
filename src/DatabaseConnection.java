@@ -5,14 +5,15 @@ import java.sql.Driver;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
+
 
 public class DatabaseConnection {
 	protected Connection conn;
-	///Tao Lien ket voi SQL Server
 	public DatabaseConnection() {
 		try {
-			String dbURL = "jdbc:sqlserver://localhost\\Thang;user=sa;password=123;database=QLQPizza";
+			String dbURL = "jdbc:sqlserver://localhost\\Thang;user=sa;password=123;database=QLQPizzaa";
 			
 			conn = DriverManager.getConnection(dbURL);
 			if (conn != null) {
@@ -30,19 +31,14 @@ public class DatabaseConnection {
 		String sql = "select * from NhanVien";
 		ArrayList<NhanVien> a = new ArrayList<NhanVien>();
 		try {
-			PreparedStatement p =conn.prepareStatement(sql);
-			ResultSet rs = p.executeQuery();
-			while(rs.next()) {
-				NhanVien nv =new NhanVien();
-				nv.setMaNV(rs.getString(1));
-				nv.setTenNV(rs.getString(2));
-				nv.setMatKhau(rs.getString(3));
-				nv.setViTri(rs.getString(4));
+			Statement st = conn.createStatement();
+			ResultSet rs = st.executeQuery(sql);
+			while ( rs.next()) {
+				NhanVien nv = new NhanVien(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4));
 				a.add(nv);
 			}
-			
 		} catch (Exception e) {
-			
+			e.printStackTrace();
 		}
 		return a;
 	}
@@ -67,5 +63,6 @@ public class DatabaseConnection {
 	}
 	public static void main(String[] args) {
 		new DatabaseConnection();
+		
 	}
 }

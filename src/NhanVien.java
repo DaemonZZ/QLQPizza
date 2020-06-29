@@ -1,9 +1,11 @@
 
-public class NhanVien {
+ class NhanVien {
 	private String maNV;
 	private String tenNV;
 	private String matKhau;
 	private String viTri;
+	
+	
 	public String getMaNV() {
 		return maNV;
 	}

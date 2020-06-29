@@ -1,10 +1,16 @@
 import java.awt.event.*;
+import java.util.ArrayList;
+
 import javax.swing.*;
 import java.awt.*;
 
-public class LoginForm extends JFrame implements ActionListener {
+public class LoginForm extends JFrame implements ActionListener , ItemListener{
 	private JPasswordField passwordField;
+	ArrayList<NhanVien> nv = new DatabaseConnection().getListNV();
+	JComboBox comboBox;
+	JComboBox comboBox_1;
 	public LoginForm() {
+		
 		getContentPane().setLayout(null);
 		setTitle("Đăng nhập");
 		setSize(443,420);
@@ -38,13 +44,18 @@ public class LoginForm extends JFrame implements ActionListener {
 		lblNewLabel_1_2.setBounds(25, 284, 81, 22);
 		getContentPane().add(lblNewLabel_1_2);
 		
-		JComboBox comboBox = new JComboBox();
+		comboBox = new JComboBox();
 		comboBox.setBounds(116, 184, 225, 22);
 		getContentPane().add(comboBox);
+		comboBox.addItem("Quản lý");
+		comboBox.addItem("Thu ngân");
+		comboBox.addItemListener( this);
 		
-		JComboBox comboBox_1 = new JComboBox();
+		comboBox_1 = new JComboBox();
 		comboBox_1.setBounds(116, 237, 225, 22);
 		getContentPane().add(comboBox_1);
+		
+		
 		
 		passwordField = new JPasswordField();
 		passwordField.setBounds(116, 288, 225, 19);
@@ -60,6 +71,9 @@ public class LoginForm extends JFrame implements ActionListener {
 		btnExit.addActionListener(this);
 		
 		setVisible(true);
+		
+		//////
+		
 	}
 
 	@Override
@@ -71,5 +85,15 @@ public class LoginForm extends JFrame implements ActionListener {
 
 	public static void main(String[] args) {
 		new LoginForm();
+	}
+
+	@Override
+	public void itemStateChanged(ItemEvent e) {
+		comboBox_1.removeAllItems();
+		for (NhanVien item : nv) {
+			if(item.getViTri().equals(comboBox.getSelectedItem().toString())) {
+				comboBox_1.addItem(item.getTenNV());
+			}
+		}
 	}
 }
