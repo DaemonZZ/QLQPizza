@@ -12,7 +12,7 @@ public class DatabaseConnection {
 	///Tao Lien ket voi SQL Server
 	public DatabaseConnection() {
 		try {
-			String dbURL = "jdbc:sqlserver://localhost\\HOAITAM;user=sa;password=123;database=QLQPizza";
+			String dbURL = "jdbc:sqlserver://localhost\\Thang;user=sa;password=123;database=QLQPizza";
 			
 			conn = DriverManager.getConnection(dbURL);
 			if (conn != null) {

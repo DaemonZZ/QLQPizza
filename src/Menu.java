@@ -2,7 +2,7 @@
 public class Menu {
 	private String maSP;
 	private String tenSP;
-	private String gia;
+	private int gia;
 	public String getMaSP() {
 		return maSP;
 	}
@@ -15,19 +15,19 @@ public class Menu {
 	public void setTenSP(String tenSP) {
 		this.tenSP = tenSP;
 	}
-	public String getGia() {
+	public int getGia() {
 		return gia;
 	}
-	public void setGia(String gia) {
-		this.gia = gia;
+	public void setGia(int i) {
+		this.gia = i;
 	}
 	
 	public Menu() {
 		this.maSP="";
 		this.tenSP="";
-		this.gia="";
+		this.gia=0;
 	}
-	public Menu(String maSP, String tenSP, String gia) {
+	public Menu(String maSP, String tenSP, int gia) {
 		this.maSP = maSP;
 		this.tenSP =tenSP;
 		this.gia = gia;
